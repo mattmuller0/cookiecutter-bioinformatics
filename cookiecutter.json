@@ -1,0 +1,10 @@
+{
+    "full_name": "Matthew Muller",
+    "email": "mm12865@nyu.edu",
+    "github_username": "mattmuller0",
+    "project_name": "Name the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "project_short_description": "A short description of your project",
+    "release_date": "{% now 'local' %}",
+    "version": "0.1.0"
+}

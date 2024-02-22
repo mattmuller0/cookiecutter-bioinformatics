@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Database
+*.db
+*.rdb
+
+# TeX/LaTeX
+*.aux
+*.bbl
+*.blg
+*.synctex.gz
+*.xwm
+
+# IPython NB Checkpoints
+.ipynb_checkpoints/
+
+# exclude data from source control by default
+/data/processed/*
+/data/raw/*
+
+# exclude any pdfs, htmls, pngs, docx
+**/*.pdf
+**/*.html
+**/*.png
+**/*.docx
+*.pdf
+*.html
+*.png
+*.docx
+
+# folders
+presentations/*
+
+
