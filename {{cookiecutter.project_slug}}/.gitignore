@@ -37,17 +37,16 @@ target/
 /data/processed/*
 /data/raw/*
 
-# exclude any pdfs, htmls, pngs, docx
-**/*.pdf
-**/*.html
-**/*.png
-**/*.docx
+# exclude any pdfs, htmls, pngs, docx, .RData
+*.docx
+*.html
+*.RData
+*.rds
 *.pdf
 *.html
 *.png
-*.docx
 
 # folders
-presentations/*
-
+# presentations/*
+# publication/*
 
