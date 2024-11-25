@@ -7,3 +7,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - package files
 - added my file organization
+- added a readme file for instructions
