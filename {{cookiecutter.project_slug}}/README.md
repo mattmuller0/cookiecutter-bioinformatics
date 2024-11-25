@@ -21,6 +21,7 @@ bash workflows/main.sh
 
 ## Project Organization
 
+```sh
 .
 ├── LICENSE             <- The license for the project
 ├── README.md           <- The top-level README for developers using this project.
@@ -36,3 +37,4 @@ bash workflows/main.sh
 ├── output
 │   └── experiment      <- output from experiments
 │   └── ...
+```
