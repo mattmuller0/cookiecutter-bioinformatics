@@ -33,10 +33,6 @@ target/
 # IPython NB Checkpoints
 .ipynb_checkpoints/
 
-# exclude data from source control by default
-/data/processed/*
-/data/raw/*
-
 # exclude any pdfs, htmls, pngs, docx, .RData
 *.docx
 *.html
@@ -47,6 +43,9 @@ target/
 *.png
 
 # folders
-# presentations/*
-# publication/*
+/data/processed/*
+/data/raw/*
+presentations/*
+writing/*
+output/*
 
