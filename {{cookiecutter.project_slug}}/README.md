@@ -30,7 +30,7 @@ bash workflows/main.sh
 ├── data
 │   ├── processed       <- The final, canonical processed data
 │   └── raw             <- The original, immutable data dump.
-├── workflows           <- Workflow scripts, e.g., for nextlfow or slurm
+├── workflows           <- Workflow scripts, e.g., for nextflow or slurm
 ├── notebooks           <- Jupyter notebooks or Rmarkdown files for exploratory analysis
 ├── code                <- Code for use in this project.
 ├── writing             <- Manuscripts preparation
