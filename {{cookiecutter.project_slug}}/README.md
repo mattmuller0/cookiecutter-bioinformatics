@@ -1,6 +1,6 @@
 # {{cookiecutter.project_slug}}
 
-- {{cookiecutter.author_name}} <{{cookiecutter.author_email}}>
+- {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 
 ## Description
 
