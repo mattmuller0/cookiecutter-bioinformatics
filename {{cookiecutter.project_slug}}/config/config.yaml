@@ -1,5 +1,5 @@
 # {{cookiecutter.project_slug}}
-# Author: Matthew Muller
+# Author: {{cookiecutter.full_name}}
 # Date: {{cookiecutter.release_date}}
 
 # ==============================================================================
@@ -7,8 +7,8 @@
 # ==============================================================================
 PROJECT_NAME: {{cookiecutter.project_slug}}
 VERSION: {{cookiecutter.version}}
-AUTHOR: "Matthew Muller"
-EMAIL: "mm12865@nyu.edu"
+AUTHOR: "{{cookiecutter.full_name}}"
+EMAIL: "{{cookiecutter.email}}"
 
 # ==============================================================================
 # PATHS
@@ -16,7 +16,3 @@ EMAIL: "mm12865@nyu.edu"
 # Data paths
 DATA_DIR: "data"
 OUTPUT_DIR: "output"
-
-# ==============================================================================
-# ANALYSIS PARAMETERS
-# ==============================================================================
