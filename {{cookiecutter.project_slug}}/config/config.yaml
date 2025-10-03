@@ -1,0 +1,81 @@
+# {{cookiecutter.project_name}} Configuration
+# Common variables and parameters used across analysis scripts
+
+# ======================== PROJECT INFO ========================
+project:
+  name: "{{cookiecutter.project_name}}"
+  author: "{{cookiecutter.full_name}}"
+  email: "{{cookiecutter.email}}"
+  version: "{{cookiecutter.version}}"
+
+# ======================== DATA PATHS ========================
+data_paths:
+  # Raw data
+  raw_data: "data/raw/"
+  
+  # Processed data
+  processed_data: "data/processed/"
+  
+  # Example paths - customize for your project
+  # input_file: "data/raw/input_data.csv"
+  # metadata: "data/raw/metadata.csv"
+
+# ======================== OUTPUT PATHS ========================
+output_paths:
+  # Results directory
+  results: "output/"
+  
+  # Figures directory
+  figures: "output/figures/"
+  
+  # Tables directory
+  tables: "output/tables/"
+
+# ======================== ANALYSIS PARAMETERS ========================
+analysis:
+  # Example parameters - customize for your project
+  # Statistical thresholds
+  thresholds:
+    pvalue: 0.05
+    padj: 0.05
+    log2fc: 1.0
+  
+  # Example: clustering parameters
+  # clustering:
+  #   method: "kmeans"
+  #   k_values: [2, 3, 4, 5]
+  
+  # Example: normalization methods
+  # normalization_methods:
+  #   - "cpm"
+  #   - "rpkm"
+  #   - "tpm"
+
+# ======================== VARIABLES ========================
+variables:
+  # Define your variables here
+  # Example:
+  # covariates:
+  #   - "age"
+  #   - "gender"
+  #   - "treatment"
+  
+  # outcomes:
+  #   - "response"
+  #   - "survival"
+
+# ======================== FILTERING CRITERIA ========================
+filters:
+  # Example filtering patterns
+  # positive_patterns: "pattern1|pattern2|pattern3"
+  # negative_patterns: "exclude1|exclude2"
+
+# ======================== GENERAL SETTINGS ========================
+settings:
+  # Random seed for reproducibility
+  seed: 42
+  
+  # Number of cores for parallel processing
+  # cores: 4
+  
+  # Other project-specific settings
