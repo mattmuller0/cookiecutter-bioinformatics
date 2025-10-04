@@ -1,83 +1,19 @@
-# {{cookiecutter.project_name}}# {{cookiecutter.project_slug}}
+# {{cookiecutter.project_name}}
 
-
-
-**Author:** {{cookiecutter.full_name}} <{{cookiecutter.email}}>  - {{cookiecutter.full_name}} <{{cookiecutter.email}}>
-
+**Author:** {{cookiecutter.full_name}} <{{cookiecutter.email}}>  
 **Version:** {{cookiecutter.version}}  
+**Date:** {{cookiecutter.release_date}}
 
-**Date:** {{cookiecutter.release_date}}## Description
+## Description
 
+{{cookiecutter.project_short_description}}
 
+## Usage
 
-## Description{{cookiecutter.project_short_description}}
+### Running the Analysis
 
-
-
-{{cookiecutter.project_short_description}}## Methodology
-
-
-
-## Getting StartedBlah blah blah
-
-
-
-### Prerequisites## Instructions
-
-
-
-- Python 3.x or R (depending on your analysis needs)How to run the project.
-
-- Conda/Miniconda for environment management
-
-- Nextflow (optional, for pipeline automation)```bash
-
-- SLURM cluster access (if using HPC resources)# Run the workflow
-
-bash workflows/main.sh
-
-### Installation```
-
-
-
-1. Clone this repository## Project Organization
-
-2. Set up your conda environment:
-
-```bash```sh
-
-# Create your analysis environment.
-
-conda create -n {{cookiecutter.project_slug}} python=3.9├── LICENSE             <- The license for the project
-
-conda activate {{cookiecutter.project_slug}}├── README.md           <- The top-level README for developers using this project.
-
-├── config              <- Configuration files, e.g., for doxygen or for your model if needed
-
-# Install required packages├── docs                <- Documentation, e.g., doxygen, scientific papers, etc.
-
-# pip install -r requirements.txt├── data
-
-```│   ├── processed       <- The final, canonical processed data
-
-│   └── raw             <- The original, immutable data dump.
-
-3. Configure your project settings in `config/config.yaml`├── workflows           <- Workflow scripts, e.g., for nextflow or slurm
-
-├── notebooks           <- Jupyter notebooks or Rmarkdown files for exploratory analysis
-
-## Usage├── code                <- Code for use in this project.
-
-├── writing             <- Manuscripts preparation
-
-### Running the Analysis├── output
-
-│   └── experiment      <- output from experiments
-
-#### Option 1: Using Shell Scripts│   └── ...
-
-```bash```
-
+#### Option 1: Using Shell Scripts
+```bash
 # Run the main workflow
 bash pipelines/main.sh
 ```
@@ -104,7 +40,7 @@ Edit `config/nextflow.config` to customize:
 
 ## Project Organization
 
-```sh
+```
 .
 ├── LICENSE                <- The license for the project
 ├── README.md              <- The top-level README for developers using this project
