@@ -12,9 +12,9 @@ nextflow.enable.dsl=2
 // params.project_dir
 // params.conda_base
 
-// Example Process: Data Preparation
-process data_preparation {
-    conda "${params.conda_base}/envs/main"
+// Process 1: Data Cleaning
+process data_cleaning {
+    conda "${params.conda_base}/envs/r"
     
     output:
     val true, emit: done
@@ -22,15 +22,13 @@ process data_preparation {
     script:
     """
     cd ${params.project_dir}
-    # Add your data preparation commands here
-    # Example: python src/prepare_data.py
-    echo "Data preparation step"
+    Rscript src/data_cleaning.R
     """
 }
 
-// Example Process: Analysis Step 1
-process analysis_step_1 {
-    conda "${params.conda_base}/envs/main"
+// Process 2: Differential Expression Analysis
+process differential_expression {
+    conda "${params.conda_base}/envs/r"
     
     input:
     val ready
@@ -41,15 +39,13 @@ process analysis_step_1 {
     script:
     """
     cd ${params.project_dir}
-    # Add your analysis commands here
-    # Example: Rscript src/analysis_step_1.R
-    echo "Analysis step 1"
+    Rscript src/differential_expression.R
     """
 }
 
-// Example Process: Analysis Step 2
-process analysis_step_2 {
-    conda "${params.conda_base}/envs/main"
+// Process 3: Clustering Analysis
+process clustering {
+    conda "${params.conda_base}/envs/r"
     
     input:
     val ready
@@ -60,15 +56,13 @@ process analysis_step_2 {
     script:
     """
     cd ${params.project_dir}
-    # Add your analysis commands here
-    # Example: python src/analysis_step_2.py
-    echo "Analysis step 2"
+    Rscript src/clustering.R
     """
 }
 
-// Example Process: Generate Report
-process generate_report {
-    conda "${params.conda_base}/envs/main"
+// Process 4: Signature Analysis
+process signature {
+    conda "${params.conda_base}/envs/r"
     
     input:
     val ready
@@ -79,28 +73,41 @@ process generate_report {
     script:
     """
     cd ${params.project_dir}
-    # Add your report generation commands here
-    # Example: Rscript src/generate_report.R
-    echo "Generating report"
+    Rscript src/signature.R
+    """
+}
+
+// Process 5: Generate Figures
+process figures {
+    conda "${params.conda_base}/envs/r"
+    
+    input:
+    val ready
+    
+    output:
+    val true, emit: done
+    
+    script:
+    """
+    cd ${params.project_dir}
+    Rscript src/figures.R
     """
 }
 
 // Main Workflow
 workflow {
-    // Define your workflow steps here
-    // This is a simple sequential example
+    // Step 1: Clean and prepare data (creates DDS object)
+    data_cleaning()
     
-    // Step 1: Prepare data
-    data_preparation()
+    // Step 2: Run differential expression analysis
+    differential_expression(data_cleaning.out.done)
     
-    // Step 2: Run analysis step 1
-    analysis_step_1(data_preparation.out.done)
+    // Step 3: Run clustering analysis (NMF and k-means)
+    clustering(data_cleaning.out.done)
     
-    // Step 3: Run analysis step 2
-    analysis_step_2(analysis_step_1.out.done)
+    // Step 4: Run signature analysis
+    signature(differential_expression.out.done)
     
-    // Step 4: Generate report
-    generate_report(analysis_step_2.out.done)
-    
-    // Customize this workflow for your specific analysis pipeline
+    // Step 5: Generate figures
+    figures(signature.out.done)
 }
