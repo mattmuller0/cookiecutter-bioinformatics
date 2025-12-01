@@ -36,13 +36,15 @@ module load git/2.17.0
 module load cmake/3.23.1
 module load jdk/21.0.1
 
-# Source conda
+# Source conda (disable -u temporarily as conda scripts have unbound variables)
+set +u
 if [[ -f "$CONDA_PATH" ]]; then
     source "$CONDA_PATH"
 else
     echo "ERROR: Conda not found at $CONDA_PATH"
     exit 1
 fi
+set -u
 
 # ==============================================================================
 # JOB INFORMATION
