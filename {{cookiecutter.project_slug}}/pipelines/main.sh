@@ -69,10 +69,13 @@ activate_env() {
     
     if [[ "$CURRENT_CONDA_ENV" != "$env_name" ]]; then
         echo "Activating conda environment: ${env_name}"
+        set +u  # Conda activation scripts have unbound variables
         conda activate "${env_name}"
+        set -u
         CURRENT_CONDA_ENV="$env_name"
     fi
 }
+
 
 # Function to run a script with automatic language detection
 # Usage: run_script <conda_env> <script_path>
