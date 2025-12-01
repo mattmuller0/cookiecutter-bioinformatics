@@ -23,9 +23,8 @@ set.seed(config$seed)
 dds <- readRDS(config$data_paths$dds)
 
 # Get controls and conditions
-controls <- config$controls$standard
 conditions <- config$conditions$primary
-
+controls <- config$controls$standard
 
 # run the differential expression analysis
 res <- deseq_analysis(dds, conditions, controls, outdir)

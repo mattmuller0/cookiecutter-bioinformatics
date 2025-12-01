@@ -22,12 +22,12 @@ conditions:
     - "disease"
     - "therapy"
   outcomes:
-    - "MACE"
+    - "censor_mace"
     - "DEATH"
 
 controls:
   standard:
-    - "age_category"
+    - "age"
     - "sex"
 
 variables:
@@ -41,23 +41,6 @@ analysis:
     pvalue: 0.05
     padj: 0.05
     log2fc: 0.5
-
-# ======================== CLUSTERING PARAMETERS ========================
-clustering:
-  methods:
-    - "nmf"
-    - "kmeans"
-    - "hierarchical"
-  nmf:
-    ranks: [2, 3, 4, 5, 6, 7, 8]
-    nrun: 50
-    method: "brunet"
-  kmeans:
-    k_values: [2, 3, 4, 5, 6, 7, 8]
-    nstart: 25
-  hclust:
-    distance: "correlation"
-    linkage: "ward.D2"
 
 # ======================== FILTERING CRITERIA ========================
 filtering:
