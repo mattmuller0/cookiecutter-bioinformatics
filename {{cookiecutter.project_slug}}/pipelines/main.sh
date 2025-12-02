@@ -6,15 +6,13 @@
 #SBATCH --time=0-12:00:00
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user={{cookiecutter.email}}
 
 # ==============================================================================
 # Bioinformatics Pipeline: {{cookiecutter.project_slug}}
 # Description: Main pipeline script for running analysis on SLURM HPC
 # ==============================================================================
 
-set -euo pipefail  # Exit on error, undefined vars, and pipe failures
+set -eo pipefail  # Exit on error and pipe failures
 trap 'echo "Error on line $LINENO. Exit code: $?" >&2' ERR
 
 # ==============================================================================
@@ -36,15 +34,13 @@ module load git/2.17.0
 module load cmake/3.23.1
 module load jdk/21.0.1
 
-# Source conda (disable -u temporarily as conda scripts have unbound variables)
-set +u
+# Source conda environment
 if [[ -f "$CONDA_PATH" ]]; then
     source "$CONDA_PATH"
 else
     echo "ERROR: Conda not found at $CONDA_PATH"
     exit 1
 fi
-set -u
 
 # ==============================================================================
 # JOB INFORMATION
@@ -71,9 +67,7 @@ activate_env() {
     
     if [[ "$CURRENT_CONDA_ENV" != "$env_name" ]]; then
         echo "Activating conda environment: ${env_name}"
-        set +u  # Conda activation scripts have unbound variables
         conda activate "${env_name}"
-        set -u
         CURRENT_CONDA_ENV="$env_name"
     fi
 }
