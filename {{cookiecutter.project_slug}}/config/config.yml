@@ -3,22 +3,21 @@
 # Common variables and parameters used across analysis scripts
 
 # ======================== DATA PATHS ========================
-data_paths:
-  # Raw data
-  raw_data: "data/raw/"
-  
-  # Processed data
-  processed_data: "data/processed/"
-  
-  # Input data files
-  counts: "data/counts.csv"
-  metadata: "data/metadata.csv"
-  dds: "output/preprocessing/dds.rds"
+# Input data paths
+raw:
+  counts: "data/raw/counts.csv"
+  metadata: "data/raw/metadata.csv"
+  dds: "output/raw/preprocessing/dds.rds"
+
+# Processed data paths
+processed:
+  counts: "data/processed/counts.csv"
+  metadata: "data/processed/metadata.csv"
+  dds: "output/processed/preprocessing/dds.rds"
 
 # ======================== SAMPLE CONDITIONS ========================
 conditions:
   primary:
-    - "control"
     - "disease"
     - "therapy"
   outcomes:
@@ -50,19 +49,10 @@ filtering:
   percent_genes_detected: 0.5
 
 # ======================== GENERAL SETTINGS ========================
-settings:
-  seed: 420
+seed: 420
 
 # ======================== PLOTTING SETTINGS ========================
 colors:
   control: "#377EB8"
   therapy: "#4DAF4A"
   event: "#E41A1C"
-
-palette: "Set1"
-theme: "bw"
-
-plot_dimensions:
-  width: 6
-  height: 6
-  dpi: 300

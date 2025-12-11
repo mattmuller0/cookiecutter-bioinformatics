@@ -27,7 +27,7 @@ config <- yaml::read_yaml("config.yml")
 set.seed(config$seed)
 
 # Load DDS object
-dds <- readRDS(config$data_paths$dds)
+dds <- readRDS(config$processed$dds)
 norm_counts <- normalize_counts(dds, method = config$analysis$normalization)
 
 # Perform clustering

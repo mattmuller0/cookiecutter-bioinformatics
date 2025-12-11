@@ -14,13 +14,14 @@ dir.create(outdir, showWarnings = FALSE)
 library(tidyverse)
 library(glue)
 library(rmatt)
+library(DESeq2)
 
 #======================== CODE ========================
-config <- yaml::read_yaml("config.yml")
+config <- yaml::read_yaml("config/config.yml")
 
 # Load data
-counts <- read.csv(config$data_paths$counts, row.names = 1)
-metadata <- read.csv(config$data_paths$metadata)
+counts <- read.csv(config$raw$counts, row.names = 1)
+metadata <- read.csv(config$raw$metadata)
 
 # Mutations to metadata if needed
 # metadata <- metadata %>%
@@ -43,16 +44,9 @@ if (config$filtering$run_filtering) {
 
 # Save filtered dds
 name <- "dds"
-save_dds(dds, file.path(outdir, name))
+save_se(dds, file.path(outdir, name))
 saveRDS(dds, file.path(outdir, name, "dds.rds"))
 message("Saved DDS object to: ", file.path(outdir, name, "dds.rds"))
-
-
-
-
-
-
-
 
 #======================== END ========================
 writeLines(capture.output(sessionInfo()), file.path(outdir, "session.log"))

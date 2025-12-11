@@ -16,7 +16,8 @@ library(glue)
 library(rmatt)
 
 #======================== CODE ========================
-
+config <- yaml::read_yaml("config/config.yml")
+set.seed(config$seed)
 
 
 

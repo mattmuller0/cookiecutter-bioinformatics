@@ -17,12 +17,12 @@ library(rmatt)
 library(singscore)
 
 #======================== CODE ========================
-config <- yaml::read_yaml("config.yml")
+config <- yaml::read_yaml("config/config.yml")
 set.seed(config$seed)
 
 # Load data
-dds <- readRDS(config$data_paths$dds)
-metadata <- read.csv(config$data_paths$metadata)
+dds <- readRDS(config$processed$dds)
+metadata <- read.csv(config$processed$metadata)
 norm_counts <- normalize_counts(dds, method = config$analysis$normalization)
 
 # Get the DE results
