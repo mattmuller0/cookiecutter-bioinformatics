@@ -2,8 +2,7 @@
 
 **Project Name:** {{cookiecutter.project_name}}
 **Author:** {{cookiecutter.full_name}}
-**Start Date:** [Date]
-**Goal:** [Brief description of the project goal]
+**Start Date:** {{cookiecutter.release_date}}
 
 ---
 
