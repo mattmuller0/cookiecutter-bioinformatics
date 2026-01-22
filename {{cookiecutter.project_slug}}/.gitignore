@@ -16,9 +16,9 @@ __pycache__/
 *.png
 
 # folders
-# /data/processed/*
-# /data/raw/*
-# presentations/*
-# writing/*
-# output/*
-# logs/*
+data/processed/*
+data/raw/*
+presentations/*
+writing/*
+output/*
+logs/*
