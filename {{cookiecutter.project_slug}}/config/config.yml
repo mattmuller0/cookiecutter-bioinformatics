@@ -22,7 +22,6 @@ conditions:
     - "therapy"
   outcomes:
     - "censor_mace"
-    - "DEATH"
 
 controls:
   standard:
@@ -44,9 +43,6 @@ analysis:
 # ======================== FILTERING CRITERIA ========================
 filtering:
   run_filtering: TRUE
-  min_counts: 10
-  min_samples: 3
-  percent_genes_detected: 0.5
 
 # ======================== GENERAL SETTINGS ========================
 seed: 420

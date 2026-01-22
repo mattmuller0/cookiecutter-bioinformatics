@@ -4,10 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+### [0.3.0] - 2026-01-22
+
 #### Added
 - package files
 - added my file organization
 - added a readme file for instructions
+- added a template lab notebook in `docs/notes.md`
 
 ### 0.2.0 - 2025-11-13
 

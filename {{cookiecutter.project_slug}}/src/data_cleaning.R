@@ -34,12 +34,7 @@ dds <- make_dds(counts, metadata, design = ~ 1)
 
 if (config$filtering$run_filtering) {
     # Run filtering
-    dds <- rna_preprocessing(
-        dds,
-        min_counts = config$filtering$min_counts,
-        min_samples = config$filtering$min_samples,
-        percent_genes_detected = config$filtering$percent_genes_detected
-    )
+    dds <- rna_preprocessing(dds)
 }
 
 # Save filtered dds
